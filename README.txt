@@ -72,3 +72,4 @@ IDEAS FOR FUTURE RELEASES
 	* Foreign Function Interface.
 	* Make concurrent.spawn network transparent.
 	* Documentation.
+	* http server.
