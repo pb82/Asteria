@@ -1,0 +1,65 @@
+message Event {
+	// Possible event types
+	enum EventType {
+		ET_INVALID = 0;
+		ET_SUICIDE = 1;
+		ET_GENERAL_ACK = 2;
+		ET_RUN_AS_MASTER = 3;
+		ET_RUN_AS_SLAVE = 4;
+		ET_FORK_REQUEST = 5;
+		ET_ALIVE_REQUEST = 6;
+		ET_KILL_REQUEST = 7;
+		ET_FINISHED = 8;
+		ET_KILLED = 9;
+		ET_DATA = 10;
+	}
+
+	// Possible data types to forward
+  enum DataType {
+  	DT_INVALID = 0;
+    DT_STRING = 1;
+    DT_INT32 = 2;
+    DT_UINT32 = 3;
+    DT_BOOL = 4;
+    DT_BINARY = 5;
+    DT_NUMBER = 6;
+    DT_FUNCTION = 7;
+		DT_ARRAY = 8;
+		DT_EXCEPTION = 9;
+  }
+	
+	// Type header
+  required EventType type = 1 [default = ET_INVALID];
+  optional DataType data_type = 2 [default = DT_INVALID];
+
+	// Sender and receiver information
+  optional uint32 sender_pid = 3;
+  optional uint32 receiver_pid = 4;
+  optional string sender_name = 5;
+  optional string receiver_name = 6;
+
+	// Contained data
+	optional string str_data = 7;
+	repeated string str_array = 8;
+
+	optional int32 int32_data = 9;
+	repeated int32 int32_array = 10;
+
+	optional uint32 uint32_data = 11;
+	repeated uint32 uint32_array = 12;
+
+	optional double double_data = 13;
+	repeated double double_array = 14;
+
+	optional bool bool_data = 15;
+	repeated bool bool_array = 16;
+
+  optional bytes binary_data = 17;
+
+	// Identify request / response pairs
+	optional uint32 request_id = 18;
+	
+	// Identify array contents
+	repeated DataType array_data = 19;	
+	repeated uint32 array_length = 20;
+}
