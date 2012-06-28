@@ -5,9 +5,13 @@ var s = require('system');
 var rl, running = true;
 var quit = function () { running = false; return "Goodbye!"; }
 
+function prompt() {
+	return '> ';
+}
+
 function repl() {
 	while(running) {
-		var line = rl.readline('> ');
+		var line = rl.readline(prompt());
 		if(line.length > 0) {
 			rl.add_history(line);
 			try {
