@@ -37,6 +37,7 @@ install:
 	@(cd Modules/shell-module;make install;)
 	@(cd Modules/sprintf-module;make install;)
 	@(cd Modules/coffee-compiler;make install;)
+	@(cd Modules/concurrent-utils;make install;)
 	@(ldconfig)
 
 uninstall:
