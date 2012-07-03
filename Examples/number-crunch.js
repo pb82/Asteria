@@ -36,9 +36,7 @@ function fastfib(n) {
 }
 	
 // Calculate the sum of the first 100 fibonacci numbers using all
-// available cores. Actually the calculation is so fast that you should
-// not see a 100% cpu usage. The program will spend the most time with
-// socket send and receive calls.
+// available cores.
 
 var sum = reduce(map(seq(10000), fastfib), 0, function (a,b) {return a+b;});
 
