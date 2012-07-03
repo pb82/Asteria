@@ -40,6 +40,6 @@ function fastfib(n) {
 // not see a 100% cpu usage. The program will spend the most time with
 // socket send and receive calls.
 
-var sum = reduce(map(seq(100), fastfib), 0, function (a,b) {return a+b });
+var sum = reduce(map(seq(10000), fastfib), 0, function (a,b) {return a+b;});
 
-print("Sum of the first 100 fibonacci numbers: ", sum, '\n');
+print("Sum of the first 10000 fibonacci numbers: ", sum, '\n');
